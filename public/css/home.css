@@ -1,0 +1,881 @@
+
+/* I GOTTA ADMIT THE CSS LAYOUT CODE IS FROM https://grid.layoutit.com/ I LOVE THEM */
+
+.containerr {
+  display: grid;
+  grid-template-columns: 1fr 1fr 350px 1fr;
+  grid-template-rows: 320px 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "hey suggestsuggesting mlchat mlwords"
+    ". . . mlfun"
+    "button . . .";
+}
+
+.mlchat { grid-area: mlchat; }
+
+.mlfun { grid-area: mlfun; }
+
+.mlwords { grid-area: mlwords; }
+
+.button { grid-area: button; }
+
+.suggestsuggesting { grid-area: suggestsuggesting; }
+
+.hey { grid-area: hey; }
+
+
+/* h5 is the latin results */ 
+
+@font-face {
+font-family: 'lemonmilk-reg';
+src: 
+  url('/assets/fonts/LEMONMILK-Light.otf')
+  format('opentype');
+}
+
+@font-face {
+font-family: 'lemonmilk-bold';
+src: 
+  url('/assets/fonts/LEMONMILK-Medium.otf')
+  format('opentype');
+}
+
+@font-face {
+font-family: 'HelveticaNeue-ultlite';
+src: 
+  url('/assets/fonts/HelveticaNeue-ultlite.otf')
+  format('opentype');
+}
+
+@font-face {
+font-family: 'HelveticaNeue-Medium';
+src: 
+  url('/assets/fonts/HelveticaNeue-Medium.ttf')
+}
+
+button .clip-text:hover{
+  font-family: 'lemonmilk-reg', Helvetica, Arial;
+  border-radius: 15px;
+  outline: 0px;
+  border: 0px;
+}
+
+.boxlink {
+  text-decoration: none;  
+}
+
+.reallink:link {
+  color: #4B80E6;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.reallink:visited {
+  color: #4B80E6;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.reallink:hover {
+  color: #FFFFFF;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.reallink:active {
+  color: #FF0000;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.button {
+  text-align: left;
+  color: white;
+  float: left;
+  margin-right: 5px;
+  right: 5px;
+  position: absolute;
+  font-size: 30px;
+}
+
+.coolbutton {
+  width: 50px; 
+  background-color: #252525;
+  height: 50px; 
+  border: 5px outset #313131;
+  padding: 5px;
+  margin: 5px;
+  transition: 0.5s;
+  box-shadow: 0 0 60px 0px rgba(0,0,0, 0.3);
+  border-radius: 15px;
+}
+
+.coolbutton:hover {
+  padding: 5px;
+  margin: 5px;
+  transition: 0.5s;
+  border: 10px outset #313131;
+  box-shadow: 0 0 70px 3px rgba(0,0,0, 0.2);
+  border-radius: 15px;
+}
+
+.coolbutton:active {
+  border: 1px outset #313131;
+  transition: 0.2s ease-out;
+}
+
+
+
+
+
+.hey-header {
+  background-image: linear-gradient(135deg, #5000ff 0%, #00ffd0 100%);  
+  font-family: 'HelveticaNeue-ultlite', 'lemonmilk-reg', Arial, Arial, Helvetica, sans-serif;
+  background-size: cover;
+  background-position: center;
+  transition: 400ms ease-in-out;
+    background-size: 200% 200%;
+    background-position:10% 0%;
+ /* text-shadow: 1px 1px 40px 40px rgba(0,0,0, 1); */
+ text-shadow: 0 0 0.01em transparent;
+
+
+    animation: Animation9 5s ease infinite;
+  -webkit-background-clip: text;
+  color: transparent; /* set to transparent, otherwise won't see the background */
+
+  width: 300px;
+  height: 66px;
+  box-sizing: border-box;
+  letter-spacing: 3px;
+  font-size: 25px;
+  font-weight: 1800;
+  line-height: 100px;
+  flex-shrink: 0;
+}
+
+@keyframes Animation9 { 
+    from {background-position:10% 0%}
+    50%{background-position:91% 100%}
+    to{background-position:10% 0%}
+}
+
+
+.heyy {
+  width: 300px; 
+  background-color: #252525;
+  height: 275px; 
+  border: 2px outset #313131;
+  letter-spacing: 1px;
+  padding: 5px;
+
+  transition: 0.5s;
+    box-shadow: 0 0 60px 0px rgba(0,0,0, 0.3);
+  border-radius: 15px;
+  
+}
+.heyy:hover {
+   padding: 5px;
+
+    transition: 0.5s;
+      border: 5px outset #313131;
+        box-shadow: 0 0 70px 3px rgba(0,0,0, 0.2);
+    border-radius: 15px;
+}
+
+
+.youshouldtrysuggestinglol {
+  width: 300px; 
+  background-color: #252525;
+  height: 400px; 
+  border: 2px outset #313131;
+  letter-spacing: 1px;
+  padding: 5px;
+  transition: 0.5s;
+  box-shadow: 0 0 60px 0px rgba(0,0,0, 0.3);
+  border-radius: 15px;
+}
+.youshouldtrysuggestinglol:hover {
+  padding: 5px;
+    transition: 0.5s;
+      border: 5px outset #313131;
+        box-shadow: 0 0 70px 3px rgba(0,0,0, 0.2);
+    border-radius: 15px;
+}
+
+.youshouldtrysuggestinglol:active {
+  border: 1px outset #313131;
+  transition: 0.2s ease-out;
+  color: #ff0000;
+}
+
+.ml-words-box {
+    text-align: center;
+
+  width: 300px; 
+  background-color: #252525;
+  height: 275px; 
+  border: 2px outset #313131;
+  padding: 5px;
+  margin: 5px;
+  transition: 0.5s;
+  box-shadow: 0 0 60px 0px rgba(0,0,0, 0.3);
+  border-radius: 15px;
+}
+
+.ml-words-box:hover {
+  padding: 5px;
+  margin: 5px;
+  transition: 0.5s;
+  border: 5px outset #313131;
+  box-shadow: 0 0 70px 3px rgba(0,0,0, 0.2);
+  border-radius: 15px;
+}
+
+.ml-words-box:active {
+  border: 1px outset #313131;
+  transition: 0.2s ease-out;
+  color: #ff0000;
+}
+
+.ml-words {
+  letter-spacing: 1px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.ml-words-header {
+  background-image: linear-gradient(135deg, #5000ff 0%, #00ffd0 100%);  
+  background-size: cover;
+  background-position: center;
+  transition: 400ms ease-in-out;
+    background-size: 200% 200%;
+    background-position:10% 0%;
+ /* text-shadow: 1px 1px 40px 40px rgba(0,0,0, 1); */
+ text-shadow: 0 0 0.01em transparent;
+
+
+    animation: Animation9 5s ease infinite;
+  -webkit-background-clip: text;
+  color: transparent; /* set to transparent, otherwise won't see the background */
+
+  width: 300px;
+  height: 66px;
+  box-sizing: border-box;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 100px;
+  flex-shrink: 0;
+}
+
+@keyframes Animation9 { 
+    from {background-position:10% 0%}
+    50%{background-position:91% 100%}
+    to{background-position:10% 0%}
+}
+
+
+.ml-chat-box {
+    text-align: center;
+
+  width: 300px; 
+  background-color: #252525;
+  height: 275px; 
+  border: 2px outset #313131;
+  padding: 5px;
+  margin: 5px;
+  margin-right: 60px;
+  box-shadow: 0 0 60px 0px rgba(0,0,0, 0.6);
+  border-radius: 15px;
+  transition: 0.5s;
+}
+
+.ml-chat-box:hover {
+  border: 5px outset #313131;
+  box-shadow: 0 0 70px 3px rgba(0,0,0, 0.5);
+  transition: 0.5s;
+}
+
+.ml-chat-box:active {
+  border: 1px outset #313131;
+  transition: 0.2s ease-out;
+  color: #ff0000;
+}
+
+.ml-chat {
+  letter-spacing: 1px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.ml-chat-header {
+    text-align: center;
+
+  background-image: linear-gradient(135deg, #5000ff 0%, #00ffd0 100%);  
+  background-size: cover;
+  background-position: center;
+  transition: 400ms ease-in-out;
+    background-size: 200% 200%;
+    background-position:10% 0%;
+ /* text-shadow: 1px 1px 40px 40px rgba(0,0,0, 1); */
+ text-shadow: 0 0 0.01em transparent;
+
+
+    animation: Animation9 5s ease infinite;
+  -webkit-background-clip: text;
+  color: transparent; /* set to transparent, otherwise won't see the background */
+
+  width: 300px;
+  height: 66px;
+  box-sizing: border-box;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 100px;
+  flex-shrink: 0;
+}
+
+@keyframes Animation9 { 
+    from {background-position:10% 0%}
+    50%{background-position:91% 100%}
+    to{background-position:10% 0%}
+}
+
+
+
+.ml-fun-box {
+    text-align: center;
+
+  width: 300px; 
+  background-color: #252525;
+  height: 275px; 
+  border: 2px outset #313131;
+  padding: 5px;
+  margin: 5px;
+  transition: 0.5s;
+  box-shadow: 0 0 60px 0px rgba(0,0,0, 0.3);
+  border-radius: 15px;
+}
+
+.ml-fun-box:hover {
+  padding: 5px;
+  margin: 5px;
+  transition: 0.5s;
+  border: 5px outset #313131;
+  box-shadow: 0 0 70px 3px rgba(0,0,0, 0.2);
+  border-radius: 15px;
+}
+
+.ml-fun-box:active {
+  border: 1px outset #313131;
+  transition: 0.2s ease-out;
+  color: #ff0000;
+}
+
+.ml-fun {
+  letter-spacing: 1px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.ml-fun-header {
+  background-image: linear-gradient(135deg, #5000ff 0%, #00ffd0 100%);  
+  background-size: cover;
+  background-position: center;
+  transition: 400ms ease-in-out;
+    background-size: 200% 200%;
+    background-position:10% 0%;
+ /* text-shadow: 1px 1px 40px 40px rgba(0,0,0, 1); */
+ text-shadow: 0 0 0.01em transparent;
+
+
+    animation: Animation9 5s ease infinite;
+  -webkit-background-clip: text;
+  color: transparent; /* set to transparent, otherwise won't see the background */
+
+  width: 300px;
+  height: 66px;
+  box-sizing: border-box;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 100px;
+  flex-shrink: 0;
+}
+
+@keyframes Animation9 { 
+    from {background-position:10% 0%}
+    50%{background-position:91% 100%}
+    to{background-position:10% 0%}
+}
+
+
+
+
+/* THIS IS A REPOST FROM BELOW FOR REFERENCE
+input[type=text]{
+  font-family: 'HelveticaNeue-ultlite', Helvetica, Arial, sans-serif;
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 0 60px 0px rgba(0,0,0, 0.6);
+  text-align: center;
+  border-radius: 33px;
+  transition: 0.5s;
+}
+
+input[type=text]:focus {
+  font-family: 'HelveticaNeue-ultlite', Helvetica, Arial, sans-serif;
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 0 60px 0px rgba(0,0,0, 0.6);
+  text-align: center;
+  border-radius: 33px;
+  border: 5px outset #313131;
+  transition: 0.5s
+*/
+
+
+
+head {
+  background-color: #313131;
+}
+body {
+  background-color: #313131;
+}
+
+/*body {
+  background-image: linear-gradient(135deg, #313131 0%, #313131 49%, #606060 50%, #313131 51%, #313131 100%);  
+  background-size: 1350% 1350%;
+  background-position:10% 0%;
+  animation: Animation20 5s ease-in-out infinte;
+}
+
+@keyframes Animation20 { 
+    from {background-position:10% 0%}
+    10%  {background-position:10% 0%}
+    20%  {background-position:10% 0%}
+    30%  {background-position:10% 0%}
+    40%  {background-position:10% 0%}
+    50%  {background-position:91% 100%}
+    60%  {background-position:91% 100%}
+    70%  {background-position:91% 100%}
+    80%  {background-position:91% 100%}
+    90%  {background-position:91% 100%}
+    100%   {background-position:91% 100%}
+}
+*/
+
+
+
+
+
+
+
+
+form{
+  font-family: 'lemonmilk-reg', Helvetica, Arial;
+}
+
+/* INPUT BOXES HERE */
+/* INPUT BOXES HERE */
+.inputs {
+    background-image: linear-gradient(135deg, #5000ff 0%, #00ffd0 100%);
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 0 0 90px 0px rgba(0,0,0, 0.25);
+    width: 50%;
+    transition: 400ms ease-in-out;
+    background-size: 200% 200%;
+    background-position:10% 0%;
+    animation: Animation1 2s ease;
+}
+@keyframes Animation1 { 
+    from{background-position:91% 100%}
+    to{background-position:10% 0%}
+}
+
+
+.inputs:hover {
+   background-image: linear-gradient(135deg, #5000ff 0%, #00ffd0 100%);
+      background-size: 200% 200%;
+      background-position:91% 100%;
+    animation: Animation2 2s ease;
+        transition: 400ms ease-in-out;
+}
+@keyframes Animation2 { 
+    from {background-position:10% 0%}
+    to{background-position:91% 100%}
+}
+
+
+.coolbar {
+    background-image: linear-gradient(135deg, #5000ff 0%, #00ffd0 100%);
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 0 0 90px 0px rgba(0,0,0, 0.25);
+    transition: 400ms ease-in-out;
+    background-size: 200% 200%;
+    background-position:10% 0%;
+    animation: Animation3 4s ease infinite;
+}
+@keyframes Animation3 { 
+    from {background-position:10% 0%}
+    50%{background-position:91% 100%}
+    to{background-position:10% 0%}
+}
+
+
+/*
+.inputs {
+    background-image: linear-gradient(135deg, #9600fb 0%, #00ffd0 100%);
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 0 0 90px 0px rgba(0,0,0, 0.25);
+    width: 50%;
+    transition: 0.3s;
+
+}
+
+.inputs:hover {
+    background-image: linear-gradient(135deg, #00ffd0 0%, #9600fb 100%);
+}
+*/
+
+
+input[type=text]{
+  font-family: 'HelveticaNeue-ultlite', Helvetica, Arial, sans-serif;
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 0 60px 0px rgba(0,0,0, 0.6);
+  text-align: center;
+  border-radius: 33px;
+  transition: 0.5s;
+}
+
+input[type=text]:focus {
+  font-family: 'HelveticaNeue-ultlite', Helvetica, Arial, sans-serif;
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 0 60px 0px rgba(0,0,0, 0.6);
+  text-align: center;
+  border-radius: 33px;
+  border: 5px outset #313131;
+  transition: 0.5s
+
+}
+
+
+
+input[type=submit]{
+  font-family: 'lemonmilk-reg', Helvetica, Arial;
+  box-shadow: 0 0 15px 0px rgba(0,0,0, 0.6);
+  border-radius: 10px;
+}
+
+input[type=submit]:hover{
+  font-family: 'lemonmilk-reg', Helvetica, Arial;
+  box-shadow: 0 0 15px 0px rgba(0,0,0, 0.6);
+  border-radius: 10px;
+  border: 10px;
+}
+
+
+.mobbtn {
+  outline: 2px;
+  border: 1px;
+}
+
+
+.btn {
+  outline: 0px;
+  cursor: pointer;
+  border: 0px;
+  background-color: transparent;
+    height: 35px;
+    width: 100px;
+    text-align: center;
+}
+
+
+
+.imgg{
+    height: 35px;
+    width: 100px;
+    border-radius: 33px; 
+    text-align: center;
+    box-shadow: 0 0 30px 12px rgba(0,0,0, 0.4);
+    transition: 0.5s;
+      display: block;
+  margin-left: -5px;
+  margin-right: auto;
+}
+
+.imgg:hover{
+    box-shadow: 0 0 37px 12px rgba(0,0,0, 0.4);
+    transition: 0.5s
+}
+
+/* INPUT BOXES HERE */
+/* INPUT BOXES HERE */
+textarea:focus, input:focus{
+    outline: none;
+}
+
+a{
+  font-family: 'lemonmilk-reg', Helvetica, Arial
+}
+
+p { font-family: 'lemonmilk-reg', Helvetica, Arial, sans-serif; }
+
+div { font-family: 'lemonmilk-reg', Helvetica, Arial, sans-serif; }
+
+/*h3 { font-family: 'lemonmilk-reg', Helvetica, Arial, sans-serif; }*/
+
+/* h5 is the latin results */ 
+
+h5 { font-family: 'HelveticaNeue-ultlite', Helvetica, Arial, sans-serif}
+
+h2 { font-family: 'HelveticaNeue-ultlite', Helvetica, Arial, sans-serif; }
+
+.arial {font-family: Arial, sans-serif;}
+
+h1 { font-family: 'HelveticaNeue-ultlite', Helvetica, Arial, sans-serif; }
+
+
+p {
+    color: #dddddd;
+    font-size: 20px;
+}
+
+div {
+    color: #dddddd;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* h5 is the latin results */ 
+
+h5 {
+  color: #dddddd;
+  font-size: 16px;
+ font-weight: bold;
+ letter-spacing: 1px;
+}
+
+
+h3 {
+    /*color: #dddddd;*/
+    font-size: 35px;
+    text-shadow: 0px 0px 1px 40px rgba(0,0,0, 1);
+}
+
+h2 {
+    color: #dddddd;
+    font-size: 16px;
+    letter-spacing: 1px;
+
+}
+
+.arial {
+    color: #dddddd;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline;
+
+}
+
+
+
+h1 {
+    color: #dddddd;
+  font-size: 16px;
+}
+
+
+
+
+
+
+
+footer {
+    color: #dddddd;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 5;
+    text-align: center;
+}
+
+header {
+  text-align: right;
+  color: white;
+  float: right;
+  margin-right: 5px;
+  right: 5px;
+  position: fixed;
+  font-size: 30px;
+}
+
+img {
+  right: 5px;
+  margin-right: 5px;
+  left: auto;
+}
+
+
+.clip-text {
+  background-image: linear-gradient(135deg, #5000ff 0%, #00ffd0 100%);  
+  background-size: cover;
+  background-position: center;
+  transition: 400ms ease-in-out;
+    background-size: 200% 200%;
+    background-position:10% 0%;
+ /* text-shadow: 1px 1px 40px 40px rgba(0,0,0, 1); */
+ text-shadow: 0 0 0.01em transparent;
+
+
+    animation: Animation5 5s ease infinite;
+  -webkit-background-clip: text;
+  color: transparent; /* set to transparent, otherwise won't see the background */
+
+  width: 300px;
+  height: 66px;
+  box-sizing: border-box;
+  font-size: 58px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 100px;
+  flex-shrink: 0;
+}
+
+@keyframes Animation5 { 
+    from {background-position:10% 0%}
+    50%{background-position:91% 100%}
+    to{background-position:10% 0%}
+}
+
+.clip-text:hover{
+  transition: 15s;
+      text-shadow: 0 0 2em white, 0 0 2em white, 0 0 2em white;
+
+}
+
+
+
+
+
+
+
+/* RESOURSES CODE */
+/* RESOURSES CODE */
+/* RESOURSES CODE */
+/* RESOURSES CODE */
+
+
+
+
+.clip-text2 {
+  background-image: linear-gradient(135deg, #5000ff 0%, #00ffd0 100%);  
+  background-size: cover;
+  background-position: center;
+  transition: 400ms ease-in-out;
+    background-size: 200% 200%;
+    background-position:10% 0%;
+ /* text-shadow: 1px 1px 40px 40px rgba(0,0,0, 1); */
+ text-shadow: 0 0 0.01em transparent;
+
+
+    animation: Animation7 5s ease infinite;
+  -webkit-background-clip: text;
+  color: transparent; /* set to transparent, otherwise won't see the background */
+
+  width: 365px;
+  height: 75px;
+  box-sizing: border-box;
+  font-size: 58px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 100px;
+  flex-shrink: 0;
+}
+
+@keyframes Animation7 { 
+    from {background-position:10% 0%}
+    50%{background-position:91% 100%}
+    to{background-position:10% 0%}
+}
+
+.clip-text2 .tooltiptext {
+  visibility: hidden;
+  background-color: black;
+  color: #ffffff;
+  border-radius: 6px;
+  font-size: 20px;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  padding-top: 0px;
+  padding-right: 5px;
+  padding-bottom: 15px;
+  padding-left: 5px;
+  height: 80px;
+  left: 390px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+
+.clip-text2:hover .tooltiptext {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.2s;
+}
+
+.clip-text2 .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%; /* To the left of the tooltip */
+  margin-top: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+  
+  visibility: visible;
+}
+
+/* RESOURSES CODE */
+/* RESOURSES CODE */
+/* RESOURSES CODE */
+/* RESOURSES CODE */
+
+
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+  .customb {
+  border: 16px solid #313131; /* Light grey */
+  border-top: 16px solid #111111; /* Blue */
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: none;
+  animation: spin 1s ease-in-out infinite;
+  margin: auto;
+  text-align: center;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
