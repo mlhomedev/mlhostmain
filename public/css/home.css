@@ -879,3 +879,32 @@ html {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+a {
+  font-weight:bold;
+}
+
+
+a:link {
+  color: #4BBAE6;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #85A9EE;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #FFFFFF;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #FF0000;
+  background-color: transparent;
+  text-decoration: underline;
+}
