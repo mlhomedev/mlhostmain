@@ -27,4 +27,4 @@ git push
 
 ---
 
-firebase hosting:channel:deploy ml-host-main
+firebase deploy --only hosting
