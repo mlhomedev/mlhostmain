@@ -24,3 +24,7 @@ git add .
 git commit -m "message"
 
 git push
+
+---
+
+firebase hosting:channel:deploy ml-host-main
