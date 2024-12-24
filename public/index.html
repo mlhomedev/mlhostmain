@@ -1,110 +1,152 @@
-<!DOCTYPE HTML>
 <!DOCTYPE html>
+<!-- 
+TODO:
+  * Make the grey rounded sqaure a fixed size.
+  * Add a 404 Page
+  * uhh
+ -->
 
+<!-- Add bulge? pause https://stackoverflow.com/questions/70498819/retro-crt-curved-screen-effect-for-website-ccs -->
 
-<html>
-    <head>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/crt.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon-180.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicon-120.png">
+
+    <meta charset="utf-8" />
+    <script src="/js/main.js"></script>
+    <script>
+      function typeText(typeSpeed) {
+        let delay = 0;
+        const doc = document.getElementById("crt");
+        const nodes = Array.from(doc.childNodes);
+        for (let node of nodes) {
+          if (node.nodeType != Node.TEXT_NODE && node.nodeName != "DIV"){ // slims it down to the 2 p and pre elements.
+            const nodeCopy = node.cloneNode(true)
+            node.innerHTML = "";
+            const content = (Array.from(nodeCopy.childNodes)).filter(node => node.nodeType !== Node.TEXT_NODE); // for some reason it shows each <br> as a BR node, and then a text node containing "\n" so im just getting rid of the text ones?
+            for (let child of content){ // 
+              if (child.nodeName == "SPAN" || child.nodeName == "A"){
+                const classList = Array.from(child.classList)
+
+                let currentSpeed = typeSpeed
+
+                if (classList.includes("slow")){
+                  currentSpeed *= 100;
+                } else if (classList.includes("nodelay")) {
+                  currentSpeed = 0;
+                } else if (classList.includes("typed")) {
+                  currentSpeed *= 10
+                } else if (classList.includes("faster")) {
+                  currentSpeed /= 5
+                }
+
+                const childContent = child.innerText;
+                const textNode = document.createTextNode("")
+                child.innerText = "";
+                const childNode = node.appendChild(child);
+                childNode.appendChild(textNode)
+                for(let letter of childContent.split("")) {
+                  setTimeout(addLetter, delay, textNode, letter)
+                  delay += currentSpeed
+                } 
+
+              } else if (child.nodeName == "BR") { // line breaks happen instantly
+                  node.appendChild(document.createElement('br'))
+              } else {
+                console.log(child.nodeName)
+              } 
+
+            }
+          }
+        }
+      }
+
+      function addLetter(node, letter){
+        node.nodeValue += letter;
+      }
       
-
-<style type="text/css">
-  .mobileShow { display: none;}
-
-  /* Smartphone Portrait and Landscape */
-  @media only screen
-    and (min-device-width : 320px)
-    and (max-device-width : 480px){ 
-      .mobileShow {display: inline;}
-  }
-</style>
-
-<style type="text/css">
-  .mobileHide {
-    display: inline;
-  }
-  /* Smartphone Portrait and Landscape */
-  
-  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-    .mobileHide {
-      display: none;
-    }
-  }
-</style>
-
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" href="/assets/images/favicon.ico">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon-180.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicon-120.png">
-
-
-
-<link rel="manifest" href="https://ml-words.cuboo.repl.co/static/manifest.json">
-  
-      <!-- get out of my source code fool -->
-
-<link id="theme" href="/css/home.css" rel="stylesheet" type="text/css" />
-
-<style>
-    .customb {
-    border: 16px solid #313131; /* Light grey */
-    border-top: 16px solid #111111; /* Blue */
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    display: none;
-    animation: spin 1s ease-in-out infinite;
-    margin: auto;
-    text-align: center;
-  }
-
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-</style>
+      function loadTime() {
+        const el = document.getElementById("login")
+        const date = new Date();
+        const formattedDate = date.toLocaleString("en-US", {
+          weekday: "short", 
+          month:   "short",   
+          day:     "2-digit",   
+          hour:    "2-digit",  
+          minute:  "2-digit",
+          second:  "2-digit",
+          hour12:  false,    
+        });
+        console.log(formattedDate)
         
+        el.innerText = el.innerText.replace("DATE", formattedDate.replaceAll(",",""))
+        // Mozilla/5.0 (<system-information>) <platform> (<platform-details>) <extensions>
+        // 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36'
 
-<div class="mobileHide">
-  <header> <img src="/assets/images/mini-icon.png" alt="Custom ML Words Logo" style="width:85px;height:85px;"> </header>
-</div>
+        let ua = navigator.userAgent
+        ua = ua.match(/\(([^)]+)\)/);
+        if (ua) {ua = ua[1];}
+        else {ua = "unknown"}
+        el.innerText = el.innerText.replace("USER", ua)
+      }
 
-<div class="mobileShow">
-    <header><img src="/assets/images/mini-icon.png" alt="Custom ML Words Logo" style="width:50px;height:50px;"></header>
-</div> 
+    </script>
 
-        <title>ML Home</title> 
-
-
-
- 
-    </head>
-    <body> 
-      <center>
-<div class="container">
-  <div class="clip-text"><h3>ML Home</h3></div>
-</div>
-            <div class="mobileShow">
-                <br>Mobile Edition: Ver 3.2
-            </div> 
-        <p>
-            ML Home Ver 1<br>
-</center>
-<h5>This is simply a test of the firebase hosting platform on my new domain, and I simply reworked some old website code to work here. Thank you.</h5>
-<div class="coolbar"><br></div><br>
-<h5>Check out the Wave Function Collapse demonstration I made! <a href="https://WaveCollapse.mlhost.org">Wave Collapse</a></h5>
-<h5>Check out the Second Wave Function Collapse demonstration I made inspired by Piet Mondrian! <a href="https://WaveCollapseMondrian.mlhost.org">Wave Collapse Mondrian</a></h5>
-<h5>Check out this really basic DS Emulator I hosted! <a href="https://CuboDS.mlhost.org">CuboDS</a></h5>
-<h5>Check out this Tetris game I made with p5! <a href="https://Cubotris.mlhost.org">Cubotris</a></h5>
-<h5>Check out this competitive tile slider game I made! <a href="https://15sq.mlhost.org">15-SQ</a></h5>
-<h5>Check out this in-depth implementation of the <a href="https://en.wikipedia.org/wiki/Langton%27s_ant">Langton's Ant</a>! <a href="https://CuboAnt.mlhost.org">CuboAnt</a></h5>
-<h5>Check out this algoirthm and 3D visualizer I made in p5 for a household decoration! <a href="https://cubobarcubes.mlhost.org">Bar Cubes Algorithm</a></h5>
-<h5>I also have a whole email domain hosted at mlhost.org! You can email me at <a href="mailto:cubo@mlhost.org">cubo@mlhost.org</a>! </h5>
-
-<h5>Check out my Githubs! <a href="https://github.com/cuboooooo">Cuboooooo</a>, <a href="https://github.com/mlhomedev">mlhomedev</a> </h5>
-<h5>Check out my p5! <a href="https://editor.p5js.org/Cubo/sketches">Cubo</a> </h5>
-<h5>Check out my really old replit! (a lot of old once-working things are broken now...) <a href="https://replit.com/@Cuboo">Cubo_</a> </h5>
-
-<h5>I plan to one day turn this into a fully functional portfolio page, but right now a lot of my time is dedicated to my current team project, a ride-sharing service/app for the city of Steubenville.</h5>
+  </head>
+  <body>
+      <div id="crt" class="crt">
+      <div class="scanline"></div>
+        <p id = "crttext" class="crttext">
+          <span id="login" class="w nodelay">Last Login : DATE on USER</span><br>
+          <span class="g nodelay">cubo@mlhost ~ % </span><span class="w typed">g++ portfolio.cpp -o portfolio</span><br>
+          <span class="g nodelay">cubo@mlhost ~ % </span><span class="w typed">./portfolio</span><br>
+          <span class="y">Engaging MLHOST Portfolio</span><span class="y slow">...</span><span class="w"> Complete!</span>
+          <br><br>
+          <span class="clip-text">██████████████████████████████████████████████████████████████████████████████████████████</span>
+        </p>
+<pre id = "ascii"><span class="bp faster">▂▅██████████▅▂
+██          ██
+██          ██  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+██ ▙   ▟ █  ██  ░  ░░░░  ░░  ░░░░░░░░  ░░░░  ░░░      ░░░░      ░░░        ░
+██ █▙ ▟█ █  ██  ▒   ▒▒   ▒▒  ▒▒▒▒▒▒▒▒  ▒▒▒▒  ▒▒  ▒▒▒▒  ▒▒  ▒▒▒▒▒▒▒▒▒▒▒  ▒▒▒▒
+██ █ █ █ █▄▖██  ▒        ▒▒  ▒▒▒▒▒▒▒▒        ▒▒  ▒▒▒▒  ▒▒▒      ▒▒▒▒▒▒  ▒▒▒▒
+██          ██  ▓  ▓  ▓  ▓▓  ▓▓▓▓▓▓▓▓  ▓▓▓▓  ▓▓  ▓▓▓▓  ▓▓▓▓▓▓▓▓  ▓▓▓▓▓  ▓▓▓▓
+██    ▟▙    ██  █  ████  ██        ██  ████  ███      ████      ██████  ████
+██ ▗██▛▜██▖ ██  ████████████████████████████████████████████████████████████
+███▛      ▜███   
+█▛          ▜█
+                    
+</span></pre>
+        <p class="crttext" id="id">
+          <br>
+<span class="w">Check out the Wave Function Collapse demonstration I made! </span> <a href="https://WaveCollapse.mlhost.org">Wave Collapse</a><span class="w"></span><br>
+<span class="w">Check out the Second Wave Function Collapse demonstration I made inspired by Piet Mondrian! </span> <a href="https://WaveCollapseMondrian.mlhost.org">Wave Collapse Mondrian</a><span class="w"></span><br>
+<span class="w">Check out this really basic DS Emulator I hosted! </span> <a href="https://CuboDS.mlhost.org">CuboDS</a><span class="w"></span><br>
+<span class="w">Check out this Tetris game I made with p5! </span> <a href="https://Cubotris.mlhost.org">Cubotris</a><span class="w"></span><br>
+<span class="w">Check out this competitive tile slider game I made! </span> <a href="https://15sq.mlhost.org">15-SQ</a><span class="w"></span><br>
+<span class="w">Check out this in-depth implementation of the </span> <a href="https://en.wikipedia.org/wiki/Langton%27s_ant">Langton's Ant</a><span class="w">! </span> <a href="https://CuboAnt.mlhost.org">CuboAnt</a><span class="w"></span><br>
+<span class="w">Check out this algoirthm and 3D visualizer I made in p5 for a household decoration! </span> <a href="https://cubobarcubes.mlhost.org">Bar Cubes Algorithm</a><span class="w"></span><br>
+<span class="w">I also have a whole email domain hosted at mlhost.org! You can email me at </span> <a href="mailto:cubo@mlhost.org">cubo@mlhost.org</a><span class="w">! </span><br>
 <br>
-<h5>Here is my resume: <a href="/assets/Micah Lundquist Resume.pdf">PDF</a>, <a href="/assets/Micah Lundquist Resume.docx">DOCX</a></h5>
-<!-- testing git fetch on laptop --> 
+<span class="w">Check out my Githubs! </span> <a href="https://github.com/cuboooooo">Cuboooooo</a><span class="w">, </span> <a href="https://github.com/mlhomedev">mlhomedev</a><span class="w"> </span><br>
+<span class="w">Check out my p5! (js web sketches) </span> <a href="https://editor.p5js.org/Cubo/sketches">Cubo</a><span class="w"> </span><br>
+<span class="w">Check out my really old replit! (a lot of old once-working things are broken now...) </span> <a href="https://replit.com/@Cuboo">Cubo_</a><span class="w"> </span><br>
+<br>
+<span class="w">I plan to one day turn this into a fully functional portfolio page, but right now a lot of my time is dedicated to my current team project, a ride-sharing service/app for the city of Steubenville.</span><br>
+<br>
+<span class="w">Here is my resume: </span> <a href="/assets/Micah Lundquist Resume.pdf">PDF</a><span class="w">, </span> <a href="/assets/Micah Lundquist Resume.docx">DOCX</a><span class="w"></span><br>
+        </p>
+    
+    </div>
+    
+  </body>
+ 
+</html>
+<script>
+    loadTime()
+    typeText(2); // Call the function directly
+</script> 
