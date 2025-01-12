@@ -5,6 +5,7 @@
   
   html {
     background-color: #000;
+    width:100vw;
   }
   
   
@@ -170,7 +171,7 @@
     animation: textShadow 1.8s infinite;
     border-radius: 20px;
     background-color: #2e2e2e;
-    /*height: 100vh;*/
+    height: 130vh;
     position: sticky;
   }
   
@@ -178,6 +179,7 @@
     font-family: monospace;
     font-size: 12px;
     padding: 20px;
+    width: 85vw;
   }
   
   pre {
@@ -191,6 +193,10 @@
   .y {
     text-shadow: var(--crt-text-shadow), 0 0 4px #ff0;
     color: #ff0;
+  }
+  .r {
+    text-shadow: var(--crt-text-shadow), 0 0 4px #f00;
+    color: #f00;
   }
   .w {
     text-shadow: var(--crt-text-shadow), 0 0 4px #fff;
@@ -206,14 +212,17 @@
     color: #0ff;
   }
   
-  .ascii-art {
-    font-size: 12px; /* Normal size for rendering */
-    transform: scale(0.25); /* Scale down to 3px equivalent */
-    transform-origin: top left; /* Ensure scaling aligns correctly */
-    display: inline-block; /* Ensure transform applies properly */
-    white-space: pre; /* Preserve ASCII art formatting */
-    margin: 0; /* Remove any extra spacing around the element */
-    padding: 0; /* Remove padding to match tight formatting */
+
+  .ascii-art-pre {
+    height: 80px;
+  }
+
+  .ascii-art-mobile {
+    font-size: 12px; 
+    transform: scale(0.6);
+    transform-origin: top left; 
+    display: inline-block;
+    white-space: pre;
   }
   
   @keyframes Animation5 {
@@ -233,6 +242,7 @@
     font-size: 12px;
       animation: Animation5 3s linear infinite;
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent; /* set to transparent, otherwise won't see the background */
     letter-spacing: 1px;
   }

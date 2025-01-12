@@ -1,0 +1,71 @@
+  html {
+    background-color: #000;
+    width: 100vw; 
+  }
+  .crttext {
+    font-family: monospace;
+    font-size: 12px;
+    padding: 20px;
+  }
+  pre {
+    padding-left: 20px;
+  }
+  
+  .g {
+    text-shadow: var(--crt-text-shadow), 0 0 4px #0f0;
+    color: #0f0;
+  }
+  .y {
+    text-shadow: var(--crt-text-shadow), 0 0 4px #ff0;
+    color: #ff0;
+  }
+  .r {
+    text-shadow: var(--crt-text-shadow), 0 0 4px #f00;
+    color: #f00;
+  }
+  .w {
+    text-shadow: var(--crt-text-shadow), 0 0 4px #fff;
+    color: #fff;
+  
+  }
+  .bp {
+    text-shadow: var(--crt-text-shadow), 0 0 4px #3C00FF;
+    color: #3C00FF;
+  }
+  a {
+    text-shadow: var(--crt-text-shadow), 0 0 4px #0ff;
+    color: #0ff;
+  }
+
+
+  .ascii-art {
+    font-size: 12px;
+    transform: scale(0.6); 
+    transform-origin: top left;
+    display: inline-block; 
+    white-space: pre;
+    margin: 0;
+    padding: 0; 
+  }
+  
+  @keyframes Animation5 {
+      from {background-position:0% 0%}
+      to {background-position:200% 0%}
+  }
+  
+  .clip-text {
+    background-image: linear-gradient(90deg, #5000ff 0%, #00ffd0 50%, #5000ff 100%);  
+    background-size: cover;
+    background-position: center;
+    transition: 400ms ease-in-out;
+      background-size: 200% 100%;
+      background-position: 0% 0%;
+    text-shadow: var(--crt-text-shadow);/*, 0 0 3px #2880E8;*/
+    font-family: monospace;
+    font-size: 12px;
+      animation: Animation5 3s linear infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* set to transparent, otherwise won't see the background */
+    letter-spacing: 1px;
+  }

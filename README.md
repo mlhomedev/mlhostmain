@@ -11,6 +11,8 @@ firebase login
 
 firebase emulators:start to test locally
 
+the only way to stop it is to close the terminal
+
 ---
 
 git config --global user.name "mlhomedev"

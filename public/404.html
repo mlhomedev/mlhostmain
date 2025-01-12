@@ -1,11 +1,145 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<!-- 
+TODO:
+  * Make the grey rounded sqaure a fixed size.
+  * Make this site work on mobile.
+  * Add a 404 Page
+  * Add a Title
+  * uhh
+  * update the bar cubes website to whats in p5
+  * put cubo terrain on
+  * find other p5 things to put on mlhost, like the particle sim
+  * make a professional version and explain that theyre all just silly little sketches
+ -->
+
+<!-- Add bulge? pause https://stackoverflow.com/questions/70498819/retro-crt-curved-screen-effect-for-website-ccs -->
+
+<html lang="en">
   <head>
+    <title>MLHOST</title> <!-- on the professional version, call it portfolio -->
+    <link rel="stylesheet" type="text/css" href="css/crt.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon-180.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicon-120.png">
+
+    <meta charset="utf-8" />
+    <script src="/js/main.js"></script>
+    <script>
+      function typeText(typeSpeed) {
+        let delay = 0;
+        const doc = document.getElementById("crt");
+        const nodes = Array.from(doc.childNodes);
+        for (let node of nodes) {
+          if (node.nodeType != Node.TEXT_NODE && node.nodeName != "DIV"){ // slims it down to the 2 p and pre elements.
+            const nodeCopy = node.cloneNode(true)
+            node.innerHTML = "";
+            const content = (Array.from(nodeCopy.childNodes)).filter(node => node.nodeType !== Node.TEXT_NODE); // for some reason it shows each <br> as a BR node, and then a text node containing "\n" so im just getting rid of the text ones?
+            for (let child of content){ // 
+              if (child.nodeName == "SPAN" || child.nodeName == "A"){
+                const classList = Array.from(child.classList)
+
+                let currentSpeed = typeSpeed
+
+                if (classList.includes("slow")){
+                  currentSpeed *= 100;
+                } else if (classList.includes("nodelay")) {
+                  currentSpeed = 0;
+                } else if (classList.includes("typed")) {
+                  currentSpeed *= 10
+                } else if (classList.includes("faster")) {
+                  currentSpeed /= 5
+                }
+
+                const childContent = child.innerText;
+                const textNode = document.createTextNode("")
+                child.innerText = "";
+                const childNode = node.appendChild(child);
+                childNode.appendChild(textNode)
+                for(let letter of childContent.split("")) {
+                  setTimeout(addLetter, delay, textNode, letter)
+                  delay += currentSpeed
+                } 
+
+              } else if (child.nodeName == "BR") { // line breaks happen instantly
+                  node.appendChild(document.createElement('br'))
+              } else {
+                console.log(child.nodeName)
+              } 
+
+            }
+          }
+        }
+      }
+
+      function addLetter(node, letter){
+        node.nodeValue += letter;
+      }
+      
+      function loadTime() {
+        const el = document.getElementById("login")
+        const date = new Date();
+        const formattedDate = date.toLocaleString("en-US", {
+          weekday: "short", 
+          month:   "short",   
+          day:     "2-digit",   
+          hour:    "2-digit",  
+          minute:  "2-digit",
+          second:  "2-digit",
+          hour12:  false,    
+        });
+        console.log(formattedDate)
+        
+        el.innerText = el.innerText.replace("DATE", formattedDate.replaceAll(",",""))
+        // Mozilla/5.0 (<system-information>) <platform> (<platform-details>) <extensions>
+        // 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36'
+
+        let ua = navigator.userAgent
+        ua = ua.match(/\(([^)]+)\)/);
+        if (ua) {ua = ua[1];}
+        else {ua = "unknown"}
+        el.innerText = el.innerText.replace("USER", ua)
+      }
+
+    </script>
 
   </head>
   <body>
-    404, page not found.
-    <br>
-    im gonna put something fun here someday.
+      <div id="crt" class="crt">
+      <div class="scanline"></div>
+        <p id = "crttext" class="crttext">
+          <span id="login" class="w nodelay">Last Login : DATE on USER</span><br>
+          <span class="g nodelay">cubo@mlhost ~ % </span><span class="w typed">g++ 404.cpp -o 404</span><br>
+          <span class="g nodelay">cubo@mlhost ~ % </span><span class="w typed">./404</span><br>
+          <span class="y">Looking for page</span><span class="y slow">...</span><span class="r"> Falied!</span>
+          <br><br>
+          <span class="clip-text">██████████████████████████████████████████████████████████████████████████████████████████</span>
+        </p>
+<pre id = "ascii"><span class="bp faster">▂▅██████████▅▂
+██          ██
+██          ██  ░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░ 
+██ ▙   ▟ █  ██  ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
+██ █▙ ▟█ █  ██  ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
+██ █ █ █ █▄▖██  ░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░   
+██          ██         ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░  
+██    ▟▙    ██         ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░  
+██ ▗██▛▜██▖ ██         ░▒▓█▓▒░▒▓████████▓▒░      ░▒▓█▓▒░ 
+███▛      ▜███   
+█▛          ▜█
+                                         
+                                          
+</span></pre>
+        <p class="crttext" id="id">
+          <br>
+<span class="w">Well drats! This page couldn't be found. Try going back to the main page! </span><a href="https://mlhost.org">mlhost.org</a><span class="w"></span><br>
+        </p>
+    
+    </div>
+    
   </body>
+ 
 </html>
+<script>
+    loadTime()
+    typeText(2); // Call the function directly
+</script> 
