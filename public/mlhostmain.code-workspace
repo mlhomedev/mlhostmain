@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "mlhostmain",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "mlhostmain"
+	}
+}
