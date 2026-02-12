@@ -1,8 +1,28 @@
+:root {
+    --background: #191a21;
+    --midground: #44475a;
+    --foreground: #f8f8f2;
+    --comment: #6272a4;
+    --cyan:#8be9fd;
+    --green:#50fa7b;
+    --orange:#ffb86c;
+    --pink: #ff79c6	;
+    --purple: 	#bd93f9;
+    --red: 	#ff5555;
+    --yellow: #f1fa8c;
+    --blurple: #3C00FF;
+  }
+  * {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+  
   html {
-    background-color: #000;
+    background-color: var(--background);
     width: 100vw; 
   }
   .crttext {
+    white-space: pre-wrap;
     font-family: monospace;
     font-size: 16px;
     padding: 20px;
@@ -12,29 +32,29 @@
   }
   
   .g {
-    text-shadow: var(--crt-text-shadow), 0 0 4px #0f0;
-    color: #0f0;
+    text-shadow: var(--crt-text-shadow), 0 0 4px var(--green);
+    color: var(--green);
   }
   .y {
-    text-shadow: var(--crt-text-shadow), 0 0 4px #ff0;
-    color: #ff0;
+    text-shadow: var(--crt-text-shadow), 0 0 4px var(--yellow);
+    color: var(--yellow);
   }
   .r {
-    text-shadow: var(--crt-text-shadow), 0 0 4px #f00;
-    color: #f00;
+    text-shadow: var(--crt-text-shadow), 0 0 4px var(--red);
+    color: var(--red);
   }
   .w {
-    text-shadow: var(--crt-text-shadow), 0 0 4px #fff;
-    color: #fff;
+    text-shadow: var(--crt-text-shadow), 0 0 4px var(--foreground);
+    color: var(--foreground);
   
   }
   .bp {
-    text-shadow: var(--crt-text-shadow), 0 0 4px #3C00FF;
-    color: #3C00FF;
+    text-shadow: var(--crt-text-shadow), 0 0 4px var(--blurple);
+    color: var(--blurple);
   }
   a {
-    text-shadow: var(--crt-text-shadow), 0 0 4px #0ff;
-    color: #0ff;
+    text-shadow: var(--crt-text-shadow), 0 0 4px var(--cyan);
+    color: var(--cyan);
   }
 
 
