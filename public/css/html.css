@@ -12,23 +12,30 @@
     --yellow: #f1fa8c;
     --blurple: #3C00FF;
   }
-  * {
-    max-width: 100%;
-    overflow-x: hidden;
+
+@font-face {
+  font-family: 'IosevkaTerm';
+  src: url('../assets/fonts/IosevkaTerm-Extended.ttf') format('truetype');
 }
   
   html {
     background-color: var(--background);
-    width: 100vw; 
+  width: 100vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-width: 100vw;
+      font-family: "IosevkaTerm", monospace-ui, monospace;
+
   }
   .crttext {
     white-space: pre-wrap;
-    font-family: monospace;
     font-size: 16px;
     padding: 20px;
   }
   pre {
     padding-left: 20px;
+      font-family: "IosevkaTerm", monospace-ui, monospace;
+
   }
   
   .g {
@@ -56,6 +63,16 @@
     text-shadow: var(--crt-text-shadow), 0 0 4px var(--cyan);
     color: var(--cyan);
   }
+  .p {
+  text-shadow: var(--crt-text-shadow), 0 0 4px var(--pink);
+  color: var(--pink);
+}
+
+.o {
+  text-shadow: var(--crt-text-shadow), 0 0 4px var(--orange);
+  color: var(--orange);
+}
+
 
 
   .ascii-art {
@@ -81,7 +98,6 @@
       background-size: 200% 100%;
       background-position: 0% 0%;
     text-shadow: var(--crt-text-shadow);/*, 0 0 3px #2880E8;*/
-    font-family: monospace;
     font-size: 12px;
       animation: Animation5 3s linear infinite;
     -webkit-background-clip: text;

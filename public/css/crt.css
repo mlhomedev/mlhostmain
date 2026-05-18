@@ -1,325 +1,392 @@
 :root {
-    --crt-text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    --clip-text-shadow: 0 0 5px #fff;
-    --background: #282a36;
-    --midground: #44475a;
-    --foreground: #f8f8f2;
-    --comment: #6272a4;
-    --cyan:#8be9fd;
-    --green:#50fa7b;
-    --orange:#ffb86c;
-    --pink: #ff79c6	;
-    --purple:	#bd93f9;
-    --red: 	#ff5555;
-    --yellow: #f1fa8c;
-    --blurple: #3C00FF;
-  }
-  
-    html {
-      background-color: #000;
-      width:100vw;
-      overflow-y: scroll;
-      overflow-x: hidden;
-      max-width: 100vw;
+  --crt-text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  --clip-text-shadow: 0 0 5px #fff;
+  --background: #282a36;
+  --midground: #44475a;
+  --foreground: #f8f8f2;
+  --comment: #6272a4;
+  --cyan: #8be9fd;
+  --green: #50fa7b;
+  --orange: #ffb86c;
+  --pink: #ff79c6;
+  --purple: #bd93f9;
+  --red: #ff5555;
+  --yellow: #f1fa8c;
+  --blurple: #3C00FF;
+}
 
-    }
+@font-face {
+  font-family: 'IosevkaTerm';
+  src: url('../assets/fonts/IosevkaTerm-Extended.ttf') format('truetype');
+}
 
-    body {
-      margin:0;
-      overflow-x: hidden;
-      max-width:100vw;
-    }
-    
-  
-  .crt::after {
-    content: " ";
-    background: rgba(18, 16, 16, 0.1);
-    opacity: 0;
-    z-index: 3;
-    pointer-events: none;
-    animation: flicker 0.15s infinite;
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-  }
-  .crt::before {
-    content: " ";
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-    z-index: 3;
-    background-size: 100% 2px, 3px 100%;
-    pointer-events: none;
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-  }
-  
-  .crtbackground {
-    z-index: -3;
-    border-radius: 20px;
-    background-color: var(--background);
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events:none;
-  }
 
-  .crt {
-    animation: textShadow 1.8s infinite;
-    position: relative;
-    min-height: 100vh;
-    height: 100%;
-    width: 100%;
-    pointer-events:auto;
-  }
-  
-  .crttext {
-    white-space: pre-wrap;
-    font-family: monospace;
-    position: relative;
-    z-index: 2;
-    font-size: 16px;
-    padding: 20px;
-    width: 85vw;
-  }
-  
-  pre {
-    padding-left: 20px;
-  }
-  
-  .g {
-    text-shadow: var(--crt-text-shadow), 0 0 4px var(--green);
-    color: var(--green);
-  }
-  .y {
-    text-shadow: var(--crt-text-shadow), 0 0 4px var(--yellow);
-    color: var(--yellow);
-  }
-  .r {
-    text-shadow: var(--crt-text-shadow), 0 0 4px var(--red);
-    color: var(--red);
-  }
-  .p {
-    text-shadow: var(--crt-text-shadow), 0 0 4px var(--pink);
-    color: var(--pink);
-  }
-  .o {
-    text-shadow: var(--crt-text-shadow), 0 0 4px var(--orange);
-    color: var(--orange);
-  }
-  .w {
-    text-shadow: var(--crt-text-shadow), 0 0 4px var(--foreground);
-    color: var(--foreground);
-  
-  }
-  .bp {
-    text-shadow: var(--crt-text-shadow), 0 0 4px var(--blurple);
-    color: var(--blurple);
-  }
-  a {
-    text-shadow: var(--crt-text-shadow), 0 0 4px var(--cyan);
-    color: var(--cyan);
-  }
-  
+html {
+  background-color: #000;
+  width: 100vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-width: 100vw;
+  font-family: "IosevkaTerm", monospace-ui, monospace;
 
-  .ascii-art-pre {
-    height: 80px;
-  }
+}
 
-  .ascii-art-mobile {
-    font-size: 12px; 
-    transform: scale(0.6);
-    transform-origin: top left; 
-    display: inline-block;
-    white-space: pre;
-  }
-  
-  @keyframes Animation5 {
-      from {background-position:0% 0%}
-      to {background-position:200% 0%}
-  }
-  
-  .clip-text {
-    background-image: linear-gradient(90deg, #5000ff 0%, #00ffd0 50%, #5000ff 100%);  
-    background-size: cover;
-    background-position: center;
-    transition: 400ms ease-in-out;
-      background-size: 200% 100%;
-      background-position: 0% 0%;
-    text-shadow: var(--crt-text-shadow);/*, 0 0 3px #2880E8;*/
-    font-family: monospace;
-    font-size: 12px;
-      animation: Animation5 3s linear infinite;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent; /* set to transparent, otherwise won't see the background */
-    letter-spacing: 1px;
-    overflow: hidden;
-  }
-  
+pre {
+  font-family: 'IosevkaTerm', Courier, monospace;
+}
 
-  /*https://aleclownes.com/2017/02/01/crt-display.html*/
-  .scanline {
-      width: 100%;
-      height: 100%;
-      z-index: 8;
-      background: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0) 0%,
-          rgba(255, 255, 255, 0.2) 10%,
-          rgba(0, 0, 0, 0.1) 100%
-      );
-      opacity: 0.1;
-      position: absolute;
-      bottom: 100%;
-      animation: scanline 10s linear infinite;
-      pointer-events: none;	
-  }
-  @keyframes scanline {
-      0% {
-          bottom: 100%;
-      }
-      80% {
-          bottom: 100%;
-      }
-      100% {
-          bottom: 0%;
-      }
+body {
+  margin: 0;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+
+.crt::after {
+  content: " ";
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 3;
+  pointer-events: none;
+  animation: flicker 0.15s infinite;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.crt::before {
+  content: " ";
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 3;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.crtbackground {
+  z-index: -3;
+  border-radius: 20px;
+  background-color: var(--background);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.crt {
+  animation: textShadow 1.8s infinite;
+  position: relative;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  pointer-events: auto;
+}
+
+.crttext {
+  white-space: pre-wrap;
+  position: relative;
+  z-index: 2;
+  font-size: 16px;
+  padding: 20px;
+  width: 85vw;
+}
+
+pre {
+  padding-left: 20px;
+
+}
+
+.g {
+  text-shadow: var(--crt-text-shadow), 0 0 4px var(--green);
+  color: var(--green);
+}
+
+.y {
+  text-shadow: var(--crt-text-shadow), 0 0 4px var(--yellow);
+  color: var(--yellow);
+}
+
+.r {
+  text-shadow: var(--crt-text-shadow), 0 0 4px var(--red);
+  color: var(--red);
+}
+
+.p {
+  text-shadow: var(--crt-text-shadow), 0 0 4px var(--pink);
+  color: var(--pink);
+}
+
+.o {
+  text-shadow: var(--crt-text-shadow), 0 0 4px var(--orange);
+  color: var(--orange);
+}
+
+.w {
+  text-shadow: var(--crt-text-shadow), 0 0 4px var(--foreground);
+  color: var(--foreground);
+
+}
+
+.bp {
+  text-shadow: var(--crt-text-shadow), 0 0 4px var(--blurple);
+  color: var(--blurple);
+}
+
+a {
+  text-shadow: var(--crt-text-shadow), 0 0 4px var(--cyan);
+  color: var(--cyan);
+}
+
+
+.ascii-art-pre {
+  height: 80px;
+}
+
+.ascii-art-mobile {
+  font-size: 12px;
+  transform: scale(0.6);
+  transform-origin: top left;
+  display: inline-block;
+  white-space: pre;
+}
+
+@keyframes Animation5 {
+  from {
+    background-position: 0% 0%
   }
 
-  @keyframes flicker {
-    0% {
-      opacity: 0.27861;
-    }
-    5% {
-      opacity: 0.34769;
-    }
-    10% {
-      opacity: 0.23604;
-    }
-    15% {
-      opacity: 0.90626;
-    }
-    20% {
-      opacity: 0.18128;
-    }
-    25% {
-      opacity: 0.83891;
-    }
-    30% {
-      opacity: 0.65583;
-    }
-    35% {
-      opacity: 0.67807;
-    }
-    40% {
-      opacity: 0.26559;
-    }
-    45% {
-      opacity: 0.84693;
-    }
-    50% {
-      opacity: 0.96019;
-    }
-    55% {
-      opacity: 0.08594;
-    }
-    60% {
-      opacity: 0.20313;
-    }
-    65% {
-      opacity: 0.71988;
-    }
-    70% {
-      opacity: 0.53455;
-    }
-    75% {
-      opacity: 0.37288;
-    }
-    80% {
-      opacity: 0.71428;
-    }
-    85% {
-      opacity: 0.70419;
-    }
-    90% {
-      opacity: 0.7003;
-    }
-    95% {
-      opacity: 0.36108;
-    }
-    100% {
-      opacity: 0.24387;
-    }
+  to {
+    background-position: 200% 0%
   }
-  @keyframes textShadow {
-    0% {
-      --crt-text-shadow: 0.438px 0 1px rgba(0,30,255,0.5), -0.438px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
-    5% {
-      --crt-text-shadow: 2.792px 0 1px rgba(0,30,255,0.5), -2.792px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
-    10% {
-      --crt-text-shadow: 0.029px 0 1px rgba(0,30,255,0.5), -0.029px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
-    15% {
-      --crt-text-shadow: 0.402px 0 1px rgba(0,30,255,0.5), -0.402px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
-    20% {
-      --crt-text-shadow: 3.479px 0 1px rgba(0,30,255,0.5), -3.479px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
-    25% {
-      --crt-text-shadow: 1.612px 0 1px rgba(0,30,255,0.5), -1.612px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
-    30% {
-      --crt-text-shadow: 0.701px 0 1px rgba(0,30,255,0.5), -0.701px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
-    35% {
-      --crt-text-shadow: 3.896px 0 1px rgba(0,30,255,0.5), -3.896px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
-    40% {
-      --crt-text-shadow: 3.870px 0 1px rgba(0,30,255,0.5), -3.870px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
-    45% {
-      --crt-text-shadow: 2.231px 0 1px rgba(0,30,255,0.5), -2.231px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
-    50% {
-      --crt-text-shadow: 0.080px 0 1px rgba(0,30,255,0.5), -0.080px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
-    55% {
-      --crt-text-shadow: 2.375px 0 1px rgba(0,30,255,0.5), -2.375px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
-    60% {
-      --crt-text-shadow: 2.202px 0 1px rgba(0,30,255,0.5), -2.202px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
-    65% {
-      --crt-text-shadow: 2.863px 0 1px rgba(0,30,255,0.5), -2.863px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
-    70% {
-      --crt-text-shadow: 0.488px 0 1px rgba(0,30,255,0.5), -0.48874025155497314px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
-    75% {
-      --crt-text-shadow: 1.894px 0 1px rgba(0,30,255,0.5), -1.894px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
-    80% {
-      --crt-text-shadow: 0.083px 0 1px rgba(0,30,255,0.5), -0.083px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
-    85% {
-      --crt-text-shadow: 0.097px 0 1px rgba(0,30,255,0.5), -0.097px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
-    90% {
-      --crt-text-shadow: 3.443px 0 1px rgba(0,30,255,0.5), -3.443px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
-    95% {
-      --crt-text-shadow: 2.184px 0 1px rgba(0,30,255,0.5), -2.184px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
-    100% {
-      --crt-text-shadow: 2.620px 0 1px rgba(0,30,255,0.5), -2.620px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-    }
+}
+
+.clip-text {
+  background-image: linear-gradient(90deg, #5000ff 0%, #00ffd0 50%, #5000ff 100%);
+  background-size: cover;
+  background-position: center;
+  transition: 400ms ease-in-out;
+  background-size: 200% 100%;
+  background-position: 0% 0%;
+  text-shadow: var(--crt-text-shadow);
+  /*, 0 0 3px #2880E8;*/
+  font-size: 12px;
+  animation: Animation5 3s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* set to transparent, otherwise won't see the background */
+  letter-spacing: 1px;
+  overflow: hidden;
+}
+
+
+/*https://aleclownes.com/2017/02/01/crt-display.html*/
+.scanline {
+  width: 100%;
+  height: 100%;
+  z-index: 8;
+  background: linear-gradient(0deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(255, 255, 255, 0.2) 10%,
+      rgba(0, 0, 0, 0.1) 100%);
+  opacity: 0.1;
+  position: absolute;
+  bottom: 100%;
+  animation: scanline 10s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scanline {
+  0% {
+    bottom: 100%;
   }
+
+  80% {
+    bottom: 100%;
+  }
+
+  100% {
+    bottom: 0%;
+  }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.27861;
+  }
+
+  5% {
+    opacity: 0.34769;
+  }
+
+  10% {
+    opacity: 0.23604;
+  }
+
+  15% {
+    opacity: 0.90626;
+  }
+
+  20% {
+    opacity: 0.18128;
+  }
+
+  25% {
+    opacity: 0.83891;
+  }
+
+  30% {
+    opacity: 0.65583;
+  }
+
+  35% {
+    opacity: 0.67807;
+  }
+
+  40% {
+    opacity: 0.26559;
+  }
+
+  45% {
+    opacity: 0.84693;
+  }
+
+  50% {
+    opacity: 0.96019;
+  }
+
+  55% {
+    opacity: 0.08594;
+  }
+
+  60% {
+    opacity: 0.20313;
+  }
+
+  65% {
+    opacity: 0.71988;
+  }
+
+  70% {
+    opacity: 0.53455;
+  }
+
+  75% {
+    opacity: 0.37288;
+  }
+
+  80% {
+    opacity: 0.71428;
+  }
+
+  85% {
+    opacity: 0.70419;
+  }
+
+  90% {
+    opacity: 0.7003;
+  }
+
+  95% {
+    opacity: 0.36108;
+  }
+
+  100% {
+    opacity: 0.24387;
+  }
+}
+
+@keyframes textShadow {
+  0% {
+    --crt-text-shadow: 0.438px 0 1px rgba(0, 30, 255, 0.5), -0.438px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+
+  5% {
+    --crt-text-shadow: 2.792px 0 1px rgba(0, 30, 255, 0.5), -2.792px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+
+  10% {
+    --crt-text-shadow: 0.029px 0 1px rgba(0, 30, 255, 0.5), -0.029px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+
+  15% {
+    --crt-text-shadow: 0.402px 0 1px rgba(0, 30, 255, 0.5), -0.402px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+
+  20% {
+    --crt-text-shadow: 3.479px 0 1px rgba(0, 30, 255, 0.5), -3.479px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+
+  25% {
+    --crt-text-shadow: 1.612px 0 1px rgba(0, 30, 255, 0.5), -1.612px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+
+  30% {
+    --crt-text-shadow: 0.701px 0 1px rgba(0, 30, 255, 0.5), -0.701px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+
+  35% {
+    --crt-text-shadow: 3.896px 0 1px rgba(0, 30, 255, 0.5), -3.896px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+
+  40% {
+    --crt-text-shadow: 3.870px 0 1px rgba(0, 30, 255, 0.5), -3.870px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+
+  45% {
+    --crt-text-shadow: 2.231px 0 1px rgba(0, 30, 255, 0.5), -2.231px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+
+  50% {
+    --crt-text-shadow: 0.080px 0 1px rgba(0, 30, 255, 0.5), -0.080px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+
+  55% {
+    --crt-text-shadow: 2.375px 0 1px rgba(0, 30, 255, 0.5), -2.375px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+
+  60% {
+    --crt-text-shadow: 2.202px 0 1px rgba(0, 30, 255, 0.5), -2.202px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+
+  65% {
+    --crt-text-shadow: 2.863px 0 1px rgba(0, 30, 255, 0.5), -2.863px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+
+  70% {
+    --crt-text-shadow: 0.488px 0 1px rgba(0, 30, 255, 0.5), -0.48874025155497314px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+
+  75% {
+    --crt-text-shadow: 1.894px 0 1px rgba(0, 30, 255, 0.5), -1.894px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+
+  80% {
+    --crt-text-shadow: 0.083px 0 1px rgba(0, 30, 255, 0.5), -0.083px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+
+  85% {
+    --crt-text-shadow: 0.097px 0 1px rgba(0, 30, 255, 0.5), -0.097px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+
+  90% {
+    --crt-text-shadow: 3.443px 0 1px rgba(0, 30, 255, 0.5), -3.443px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+
+  95% {
+    --crt-text-shadow: 2.184px 0 1px rgba(0, 30, 255, 0.5), -2.184px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+
+  100% {
+    --crt-text-shadow: 2.620px 0 1px rgba(0, 30, 255, 0.5), -2.620px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
+}
 
 
 body::before {
