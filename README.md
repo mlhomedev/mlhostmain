@@ -1,32 +1,6 @@
 # ML Host Main Page
 
-Figuring out how git worked was a mess.
-test
+We have migrated from Firebase hosting to GitHub pages.
 
-clone git 
+Github's recent inconsistent uptime doesn't give me much hope in this choice, but I think it will make it easier to make my website better and push changes with less effort. 
 
-install firebase with curl -sL https://firebase.tools | bash
-
-firebase login 
-
-firebase emulators:start to test locally
-
-the only way to stop it is to close the terminal
-
----
-
-git config --global user.name "mlhomedev"
-
-git config --global user.name "mail.mlhome.dev@gmail.com"
-
-(if ur on another acct)
-
-git add .
-
-git commit -m "message"
-
-git push
-
----
-
-firebase deploy --only hosting
